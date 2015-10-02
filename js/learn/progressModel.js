@@ -84,18 +84,25 @@ function ProgressModel(lessonsModel) {
 
    that.loadHash = function() {
       var hashText = window.location.hash;
-      
-      if (!hashText) {
+
+      var path = hashText.split('/');
+
+      if (!hashText || path.length == 1) {
+         language = path[0].substr(1);
+         if (!isSupportedLanguage(language)) {
+             language = "english";
+             i18n.setLng("en");
+         }
          currUnitIndex = 1;
          currLessonIndex = 1;
          atHomescreen = true;
          return;
       }
+
       atHomescreen = false;
       hasStarted = true;
-      var path = hashText.split('/');
 
-      language = path[1];    
+      language = path[1];
       var unitString = path[2];
       var lessonString = path[3];
 
@@ -138,11 +145,24 @@ function ProgressModel(lessonsModel) {
    }
 
    function isSupportedLanguage(language) {
-      if (language == 'english') return true;
-      if (language == 'swahili') return true;
-      if (language == 'spanish') return true;
+      if (language == 'english') {
+          i18n.setLng("en");
+          return true;
+      }
+      if (language == 'swahili') {
+          i18n.setLng("sw");
+          return true;
+      }
+      if (language == 'spanish') {
+          i18n.setLng("es");
+          return true;
+      }
+      if (language == 'french') {
+          i18n.setLng("fr");
+          return true;
+      }
    }
 
-   init(); 
+   init();
    return that;
 }

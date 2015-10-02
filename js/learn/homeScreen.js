@@ -22,7 +22,7 @@ function HomeScreen(progressModel, finishedCallback) {
       destinationUrl += progressModel.getHashForLesson(1, 1, 'english');
       window.location = destinationUrl;
    }
-   var text = progressModel.hasStarted() ? 'Continue' : 'Start';
+   var text = progressModel.hasStarted() ? i18n.t('Continue') : i18n.t('Start');
    var continueButton = TextButton(continueDim, text, 'content', continueEvent);
    that.elements.push(continueButton);
 
@@ -64,7 +64,7 @@ function HomeScreen(progressModel, finishedCallback) {
             width: PROGRESS_BOX_WIDTH,
             height: unitHeight
          };
-         var tooltip = LessonsModel.unitNames[i];
+         var tooltip = i18n.t(LessonsModel.unitNames[i]);
          var unit = i + 1;
          var callback = function(unit) {
             var hash = progressModel.getHashForLesson(unit, 1);

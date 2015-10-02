@@ -594,12 +594,13 @@ margin-right:5px;
 /* tooltip styling. by default the element to be styled is .tooltip  */
 .tooltip {
 	background:transparent url(../images/black_arrow.png);
+	background-size: 100% 100%;
 	display:none;
 	font-size:24px;
 	text-align:center;
 	height:70px;
 	line-height:70px;
-	width:160px;
+/*	width:160px;*/
 	padding:25px;
 	color:#fff;	
 	z-index:9999999999999999999;

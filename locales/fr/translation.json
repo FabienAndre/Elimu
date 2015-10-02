@@ -1,0 +1,25 @@
+{
+  "app": {
+    "Continue": "Continue",
+    "Start": "Start"
+  },
+"_section": "HomeScreen",
+  "Continue": "Continuer",
+  "Start": "Démarrer",
+  "Meet Karel": "Rencontrer Karel",
+  "Commands" : "Commandes",
+  "Programs" : "Programmes",
+  "Functions" : "Fonctions",
+  "Newspaper" : "Journal",
+  "Repeat" : "Répétitions",
+  "Conditionals": "Conditions",
+  "While" : "Tant Que",
+  "If": "Si",
+  "Color" : "Couleur",
+  "Random" : "Aléatoire",
+  "Midpoint" : "Milieu",
+"_section": "Lessons",
+    "_esp": "Unit1"
+
+}
+
