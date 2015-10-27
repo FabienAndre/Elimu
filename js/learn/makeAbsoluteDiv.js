@@ -3,6 +3,7 @@ function MakeAbsoluteDiv(that, parentId, dim) {
    that.heightFraction = dim.height;
    that.leftFraction = dim.left;
    that.topFraction = dim.top;
+   that.padding = dim.padding;
 
    that.init = function() {
       that.div.className = 'absoluteDiv';
@@ -34,6 +35,9 @@ function MakeAbsoluteDiv(that, parentId, dim) {
       that.div.style.top = that.top + 'px';
       that.div.style.width = that.width + 'px';
       that.div.style.height = that.height + 'px';
+      if (that.padding) {
+          that.div.style.padding = that.padding;
+      }
    }
 
    that.init();

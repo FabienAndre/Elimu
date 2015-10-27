@@ -1,13 +1,36 @@
 {
   "app": {
-    "Continue": "Continuar",
-    "Start": "Empezar"
+    "Continue": "Continue",
+    "Start": "Start"
   },
 "_section": "HomeScreen",
- "Continue": "Continuar",
-    "Start": "Empezar",
+  "Continue": "Continuar",
+  "Start": "Empezar",
+  "Unit": "Sección",
+  "Lesson": "Lección",
+  "Goal": "Objetivo",
+  "Meet Karel": "Encontrar Karel",
+  "Commands" : "Mandos",
+  "Programs" : "Programmas",
+  "Functions" : "Funciónes",
+  "Newspaper" : "Periodico",
+  "Repeat" : "Repeticiones",
+  "Conditionals": "Condicionales",
+  "While" : "Mientras Que",
+  "If": "Si",
+  "Color" : "Color",
+  "Random" : "Aleatorio",
+  "Midpoint" : "Punto medio",
 "_section": "Lessons",
-    "_esp": "Unit1"
-
+    "_esp": "Unit1",
+       "Karel": "Karel",
+       "Beeper": "Pastilla",
+       "World": "Mundo",
+       "Wall": "Muro",
+    "_esp": "Unit2",
+        "move": "adelante",
+        "turnLeft": "giraALaIzquierda",
+        "putBeeper": "ponePastilla",
+        "pickBeeper": "cogePastilla"
 }
 

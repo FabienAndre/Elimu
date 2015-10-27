@@ -157,6 +157,7 @@ function importJsLibraries() {
 	  '<script src="./lib/jquery.js"></script>',
       //'<script src="http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js"></script>',
       '<script src="./boxy/jquery.boxy.js"></script>',
+      '<script src="./lib/i18next.js"></script>',
    ]
    importScripts(scripts);
 }
@@ -249,8 +250,16 @@ function importReference() {
 	importScripts(scripts);	
 }
 
+function importTranslation() {
+   var scripts = [
+		'<script src="./js/translation/internationalization.js"></script>',
+	]
+	importScripts(scripts);
+}
+
 function importJs() {
    importJsLibraries();
+   importTranslation();
    importController();
    importCompiler();
    importKarelIde();

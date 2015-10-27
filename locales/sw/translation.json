@@ -1,0 +1,12 @@
+{
+  "_comment": "copied from js/translation/swahiliDict.js",
+  "move": "hoja",
+  "beeper": "beeper",
+  "karel": "karel",
+  "put": "weka",
+  "pick": "ta",
+  "turn": "upande",
+  "left": "kushoto",
+  "right": "haki",
+  "turnAround": "geuka"
+}

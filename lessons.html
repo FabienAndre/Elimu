@@ -36,16 +36,18 @@
          
          window.onload = function() {
             initTabs();
-            learnEngine = KarelLearnEngine();
-            window.onhashchange = learnEngine.onHashChange;      
-            window.onresize();
-            $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
-         }    
+            polyglot.initCompoundHash(function () {
+                learnEngine = KarelLearnEngine();
+                window.onhashchange = learnEngine.onHashChange;
+                window.onresize();
+                $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
+            });
+         }
 
          window.onresize = function(){
             if(learnEngine)learnEngine.onWindowResize();
             ReferenceDialog.resize();
-         }     
+         }
       }
       init();
    </script>

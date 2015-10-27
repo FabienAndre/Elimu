@@ -6,6 +6,9 @@
 "_section": "HomeScreen",
   "Continue": "Continuer",
   "Start": "Démarrer",
+  "Unit": "Chapitre",
+  "Lesson": "Leçon",
+  "Goal": "Objectif",
   "Meet Karel": "Rencontrer Karel",
   "Commands" : "Commandes",
   "Programs" : "Programmes",
@@ -19,7 +22,15 @@
   "Random" : "Aléatoire",
   "Midpoint" : "Milieu",
 "_section": "Lessons",
-    "_esp": "Unit1"
-
+    "_esp": "Unit1",
+       "Karel": "Karel",
+       "Beeper": "Puce",
+       "World": "Monde",
+       "Wall": "Mur",
+    "_esp": "Unit2",
+        "move": "avancer",
+        "turnLeft": "tournerÀGauche",
+        "putBeeper": "mettrePuce",
+        "pickBeeper": "prendrePuce"
 }
 

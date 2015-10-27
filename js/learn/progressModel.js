@@ -5,7 +5,6 @@ function ProgressModel(lessonsModel) {
    var currLessonIndex = 1;
    var unitProgressList = [];
    var corrupted = false;
-   var language = 'english';
    var atHomescreen = true;
    var hasStarted = false;
 
@@ -69,30 +68,26 @@ function ProgressModel(lessonsModel) {
    that.setHash = function() {
       
       if (!atHomescreen) {
-         var hashString = that.getHashForLesson(currUnitIndex, currLessonIndex, language);
+         var hashString = that.getHashForLesson(currUnitIndex, currLessonIndex);
          window.location.hash = hashString;
       }
    }
 
    that.getHashForLesson = function(unit, lesson) {
       var hashString = '';
-      hashString += '/' + language;
+      hashString += '/' + polyglot.language;
       hashString += '/unit' + unit;
       hashString += '/lesson' + lesson;
       return hashString;
    }
 
-   that.loadHash = function() {
+   that.loadHash = function(cb) {
       var hashText = window.location.hash;
 
       var path = hashText.split('/');
 
       if (!hashText || path.length == 1) {
-         language = path[0].substr(1);
-         if (!isSupportedLanguage(language)) {
-             language = "english";
-             i18n.setLng("en");
-         }
+         var language = path[0].substr(1);
          currUnitIndex = 1;
          currLessonIndex = 1;
          atHomescreen = true;
@@ -102,11 +97,11 @@ function ProgressModel(lessonsModel) {
       atHomescreen = false;
       hasStarted = true;
 
-      language = path[1];
+      var language = path[1];
       var unitString = path[2];
       var lessonString = path[3];
 
-      if (!isSupportedLanguage(language)) {
+      if (!polyglot.isSupported(language)) {
          corrupted = true;
          alert('corrupted hash string');
          return;
@@ -142,25 +137,6 @@ function ProgressModel(lessonsModel) {
 
    function getCurrUnitIndex() {
       return unitProgressList[currUnitIndex - 1];
-   }
-
-   function isSupportedLanguage(language) {
-      if (language == 'english') {
-          i18n.setLng("en");
-          return true;
-      }
-      if (language == 'swahili') {
-          i18n.setLng("sw");
-          return true;
-      }
-      if (language == 'spanish') {
-          i18n.setLng("es");
-          return true;
-      }
-      if (language == 'french') {
-          i18n.setLng("fr");
-          return true;
-      }
    }
 
    init();

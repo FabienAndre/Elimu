@@ -35,26 +35,15 @@
    </div>
    <script>
       function init() {
-        i18n.init({lng: "en", fallbackLng: false});
-        var hashText = window.location.hash;
-
-        var path = hashText.split('/');
-
-        if (!hashText || path.length == 1) {
-            language = path[0].substr(1);
-            if (!isSupportedLanguage(language)) {
-                language = "english";
-                i18n.setLng("en");
-            }
-        }
-
          var learnEngine = null;
          
          window.onload = function() {
             initTabs();
-            learnEngine = KarelLearnEngine();
-            window.onhashchange = learnEngine.onHashChange;      
-            window.onresize();
+            polyglot.initSimpleHash(function () {
+                learnEngine = KarelLearnEngine();
+                window.onhashchange = learnEngine.onHashChange;
+                window.onresize();
+            });
             
             $("[title]").tooltip({ position: "bottom center", opacity: 0.9});
          }    
@@ -65,24 +54,7 @@
          }
       }
 
-    function isSupportedLanguage(language) {
-      if (language == 'english') {
-          i18n.setLng("en");
-          return true;
-      }
-      if (language == 'swahili') {
-          i18n.setLng("sw");
-          return true;
-      }
-      if (language == 'spanish') {
-          i18n.setLng("es");
-          return true;
-      }
-      if (language == 'french') {
-          i18n.setLng("fr");
-          return true;
-      }
-   }
+
 
       init();
    </script>

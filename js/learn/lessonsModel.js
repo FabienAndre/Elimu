@@ -664,8 +664,8 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
    that.elements = [];
    that.elements.push(staticKarel);
    that.elements.push(dynamicKarel);
-   that.elements.push(TextBox(textDim1, 'Goal'));
-   that.elements.push(TextBox(textDim2, 'World'));
+   that.elements.push(TextBox(textDim1, i18n.t('Goal')));
+   that.elements.push(TextBox(textDim2, i18n.t('World')));
    
    var actionMap = {};
    actionMap.move = AddEqualCheck(ide, staticKarel.getIde(), ide.stepMove, finishedCallback);
@@ -674,16 +674,16 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
    actionMap.pickBeeper = AddEqualCheck(ide, staticKarel.getIde(), ide.stepPickBeeper, finishedCallback);
    
    var textMap = {};
-   textMap.move = '<b>move();</b>';
-   textMap.turnLeft = '<b>turnLeft();</b>';
-   textMap.putBeeper = '<b>putBeeper();</b>';
-   textMap.pickBeeper = '<b>pickBeeper();</b>';
+   textMap.move = 'move';
+   textMap.turnLeft = 'turnLeft';
+   textMap.putBeeper = 'putBeeper';
+   textMap.pickBeeper = 'pickBeeper';
    
    var buttonDim = [];
-   buttonDim.push({left:0.185, top:0.65, width:0.3, height:0.12});
-   buttonDim.push({left:0.515, top:0.65, width:0.3, height:0.12});
-   buttonDim.push({left:0.185, top:0.8, width:0.3, height:0.12});
-   buttonDim.push({left:0.515, top:0.8, width:0.3, height:0.12});
+   buttonDim.push({left:0.185, top:0.65, padding:"0px 0.8em", height:0.12});
+   buttonDim.push({left:0.515, top:0.65, padding:"0px 0.8em", height:0.12});
+   buttonDim.push({left:0.185, top:0.8, padding:"0px 0.8m", height:0.12});
+   buttonDim.push({left:0.515, top:0.8, padding:"0px 0.8em", height:0.12});
    
    var numButtons = 0;
    for (key in buttonMap) {
@@ -697,8 +697,8 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
       var dim = buttonDim[dimIndex];
 	  if (dimIndex == numButtons - 1 && numButtons % 2 == 1) {
          dim.left = (0.185 + 0.515) / 2 ;
-	  }	  
-	  var text = textMap[key];
+	  }
+	  var text = '<b>' + i18n.t(textMap[key]) + '();</b>';
 	  var action = actionMap[key];
       that.buttons.push(KarelCommandButton(dim, text, action));
 	  dimIndex++;
@@ -751,7 +751,7 @@ function PictureDemo(buttonSrcs, labels, finishedCallback) {
 	    finishedCallback();
 		return;
      }
-	 var labelText = labels[that.imageIndex];
+	 var labelText = i18n.t(labels[that.imageIndex]);
 	 var labelDim = that.imageButtons[that.imageIndex].getLabelSlotDim();
      var label = TextBox(labelDim, labelText);
      label.setTextHeightFraction(0.6);
@@ -809,7 +809,7 @@ function PictureLesson(buttonSrcs, labels, finishedCallback, demo) {
       }
 
       that.answerIndex = orderMap[that.questionIndex];
-      var questionLabel = labels[that.questionIndex];
+      var questionLabel = i18n.t(labels[that.questionIndex]);
 	  var labelDim = textDim;
       that.questionBox = TextBox(labelDim, questionLabel);
       that.questionBox.setTextHeightFraction(0.6);
